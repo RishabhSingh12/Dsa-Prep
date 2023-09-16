@@ -60,6 +60,14 @@ class BinarySearchTree {
       this.inOrder(root.right);
     }
   }
+
+  postOrder(root) {
+    if (root) {
+      this.postOrder(root.left);
+      this.postOrder(root.right);
+      console.log(root.value);
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -76,4 +84,4 @@ bst.insert(7);
 // bst.preOrder(bst.root);
 
 //inorder traversal
-bst.inOrder(bst.root);
+bst.postOrder(bst.root);
