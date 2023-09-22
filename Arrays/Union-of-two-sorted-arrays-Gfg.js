@@ -43,35 +43,50 @@
 class Solution {
   //Function to return a list containing the union of the two arrays.
   findUnion(arr1, arr2, n, m) {
-    //your code here
+    //best approach
     let i = 0,
       j = 0; // Pointers
     let union = [];
 
-    while (i < n && j < m) {
-      if (arr1[i] <= arr2[j]) {
-        // Case 1 and 2
-        if (union.length === 0 || union[union.length - 1] !== arr1[i])
-          union.push(arr1[i]);
-        i++;
-      } else {
-        // Case 3
-        if (union.length === 0 || union[union.length - 1] !== arr2[j])
-          union.push(arr2[j]);
-        j++;
-      }
+    // while (i < n && j < m) {
+    //   if (arr1[i] <= arr2[j]) {
+    //     // Case 1 and 2
+    //     if (union.length === 0 || union[union.length - 1] !== arr1[i])
+    //       union.push(arr1[i]);
+    //     i++;
+    //   } else {
+    //     // Case 3
+    //     if (union.length === 0 || union[union.length - 1] !== arr2[j])
+    //       union.push(arr2[j]);
+    //     j++;
+    //   }
+    // }
+
+    // while (i < n) {
+    //   // If any elements left in arr1
+    //   if (union[union.length - 1] !== arr1[i]) union.push(arr1[i]);
+    //   i++;
+    // }
+
+    // while (j < m) {
+    //   // If any elements left in arr2
+    //   if (union[union.length - 1] !== arr2[j]) union.push(arr2[j]);
+    //   j++;
+    // }
+
+    //set approach
+    const set = new Set();
+
+    for (let num of arr1) {
+      set.add(num);
     }
 
-    while (i < n) {
-      // If any elements left in arr1
-      if (union[union.length - 1] !== arr1[i]) union.push(arr1[i]);
-      i++;
+    for (let num of arr2) {
+      set.add(num);
     }
 
-    while (j < m) {
-      // If any elements left in arr2
-      if (union[union.length - 1] !== arr2[j]) union.push(arr2[j]);
-      j++;
+    for (let num of set) {
+      union.push(num);
     }
 
     return union;
