@@ -1,7 +1,7 @@
 //implementattion for queue
 class Queue {
   constructor() {
-    this.item = [];
+    this.items = [];
   }
 
   //for adding element to the queue
@@ -34,6 +34,24 @@ class Queue {
 
   //to return the items in the queue
   print() {
-    return this.items.toString();
+    console.log(this.items.toString());
   }
 }
+
+//making the instance and using the queue
+const queue = new Queue();
+console.log(queue.isEmpty());
+
+//adding elements
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(40);
+
+console.log(queue.size());
+
+queue.print();
+
+console.log(queue.dequeue());
+console.log(queue.peek());
+queue.print();
