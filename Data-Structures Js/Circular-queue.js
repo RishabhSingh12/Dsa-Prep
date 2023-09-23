@@ -91,3 +91,6 @@ circularqueue.enqueue(40);
 
 console.log(circularqueue.isFull());
 circularqueue.print();
+
+console.log(circularqueue.dequeue());
+circularqueue.print();
