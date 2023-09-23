@@ -41,3 +41,21 @@ class Queue {
     console.table(this.items);
   }
 }
+
+//creating instance and checking the implementatioh
+const queue = new Queue();
+console.log(queue.isEmpty());
+
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+
+console.log(queue.peek());
+
+console.log(queue.dequeue());
+
+console.log(queue.peek());
+
+console.log(queue.size());
+
+queue.print();
