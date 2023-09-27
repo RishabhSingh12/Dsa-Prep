@@ -6,6 +6,18 @@ class LRU {
     this.cache = new Map();
   }
 
+  getkey(key) {
+    let item = this.cache.get(key);
+
+    //if item value exists then delete the key and place it to the front
+    if (item) {
+      this.cache.delete(key);
+      this.cache.set(key, item);
+    }
+
+    return item;
+  }
+
   setKey(key, value) {
     if (this.cache.has(key)) this.cache.delete(key);
     else if (this.cache.size === this.max) {
