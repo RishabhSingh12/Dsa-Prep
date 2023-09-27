@@ -32,3 +32,18 @@ class LRU {
     return this.cache.keys().next().value;
   }
 }
+
+//testing the implementation
+const LruCache = new LRU(3);
+
+LruCache.setKey("name", "Rishabh");
+LruCache.setKey("age", "25");
+LruCache.setKey("profession", "Engineer");
+console.log(LruCache.cache);
+LruCache.getkey("name");
+
+console.log(LruCache.cache);
+
+//setting new key value pair
+LruCache.setKey("location", "Gurgaon");
+console.log(LruCache.cache);
