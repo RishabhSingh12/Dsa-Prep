@@ -22,6 +22,6 @@ class LinkedList {
   }
 }
 
-const list = LinkedList();
+const list = new LinkedList();
 console.log(list.isEmpty());
 console.log(list.getSize());
