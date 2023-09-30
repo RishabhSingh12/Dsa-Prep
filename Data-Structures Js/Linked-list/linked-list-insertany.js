@@ -90,3 +90,7 @@ list.print();
 
 list.insertAny(30, 1);
 list.print();
+
+list.insertAny(40, 2);
+list.print();
+console.log(list.getSize());
