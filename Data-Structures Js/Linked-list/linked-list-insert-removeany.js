@@ -59,6 +59,28 @@ class LinkedList {
     }
   }
 
+  //for removing at any given position in a linkedlist
+  removeAny(index) {
+    if (index < 0 || index >= this.size) {
+      console.log("index is invalid to be removed");
+      return;
+    }
+    let removeNode;
+    if (index === 0) {
+      removeNode = this.head;
+      this.head = this.head.next;
+    } else {
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      removeNode = prev.next;
+      prev.next = removeNode.next;
+    }
+    this.size--;
+    return removeNode.value;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("Linked list is empty");
@@ -92,5 +114,15 @@ list.insertAny(30, 1);
 list.print();
 
 list.insertAny(40, 2);
+list.print();
+console.log(list.getSize());
+
+//removing case testing
+list.removeAny(10);
+
+list.removeAny(0);
+list.print();
+
+list.removeAny(2);
 list.print();
 console.log(list.getSize());
