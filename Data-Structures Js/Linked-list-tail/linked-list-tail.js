@@ -58,6 +58,28 @@ class Linkedlist {
     }
   }
 
+  //remove from the last
+  removeFromtheLast() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.tail.value;
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let prev = this.head;
+      while (prev.next !== this.tail) {
+        prev = prev.next;
+      }
+      prev.next = null;
+      this.tail = prev;
+    }
+    this.size--;
+    return value;
+  }
+
+  //printing the value of linked list
   print() {
     if (this.isEmpty()) {
       console.log("List is empty!");
@@ -85,4 +107,11 @@ list.print();
 list.append(5);
 list.print();
 list.prepend(10);
+list.print();
+
+//removing from the front
+// list.removeFromFront();
+
+//remove from the last
+list.removeFromtheLast();
 list.print();
