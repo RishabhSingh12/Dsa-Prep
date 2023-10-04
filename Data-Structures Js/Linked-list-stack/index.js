@@ -25,3 +25,7 @@ class LinkedlistStack {
     return this.list.print();
   }
 }
+
+//testing the implementation
+const stack = new LinkedlistStack();
+console.log(stack.isEmpty());
