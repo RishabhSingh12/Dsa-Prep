@@ -18,7 +18,7 @@ class LinkedlistStack {
   }
 
   getSize() {
-    this.list.getSize();
+    return this.list.getSize();
   }
 
   print() {
@@ -29,3 +29,12 @@ class LinkedlistStack {
 //testing the implementation
 const stack = new LinkedlistStack();
 console.log(stack.isEmpty());
+
+//pushing the elements
+stack.push(20);
+stack.push(10);
+stack.push(30);
+
+stack.print();
+
+console.log(stack.getSize());

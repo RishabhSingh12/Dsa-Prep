@@ -76,6 +76,21 @@ class LinkedList {
     this.size--;
     return value;
   }
+
+  //printing the elements
+  print() {
+    if (this.isEmpty()) {
+      console.log("List is empty");
+    } else {
+      let prev = this.head;
+      let val = "";
+      while (prev) {
+        val += `${prev.value} `;
+        prev = prev.next;
+      }
+      console.log(val);
+    }
+  }
 }
 
 module.exports = LinkedList;
