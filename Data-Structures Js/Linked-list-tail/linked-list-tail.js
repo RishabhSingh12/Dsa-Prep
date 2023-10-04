@@ -40,8 +40,8 @@ class Linkedlist {
       this.head = node;
       this.tail = node;
     } else {
-      node.next = this.tail;
-      this.tail = node;
+      this.tail.next = node;
+      this.tail = this.tail.next;
     }
     this.size++;
   }
