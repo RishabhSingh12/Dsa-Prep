@@ -9,8 +9,12 @@ class LinkedlistStack {
     this.list.prepend(value);
   }
 
+  peek() {
+    return this.list.head.value;
+  }
+
   pop() {
-    return this.list.removeFromEnd();
+    return this.list.removefromFront();
   }
 
   isEmpty() {
@@ -38,3 +42,10 @@ stack.push(30);
 stack.print();
 
 console.log(stack.getSize());
+
+//popping elements
+console.log(stack.pop());
+
+stack.print();
+
+console.log(stack.peek());
