@@ -93,15 +93,17 @@ class LinkedList {
   }
 }
 
+module.exports = LinkedList;
+
 //testing the implementation
-const list = new LinkedList();
+// const list = new LinkedList();
 
-list.append(10);
-list.append(20);
-list.append(30);
+// list.append(10);
+// list.append(20);
+// list.append(30);
 
-list.print();
+// list.print();
 
-console.log(list.removeFromFront());
+// console.log(list.removeFromEnd());
 
-list.print();
+// list.print();
