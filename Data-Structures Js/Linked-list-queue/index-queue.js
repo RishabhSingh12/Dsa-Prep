@@ -14,7 +14,7 @@ class LinkedListQueue {
   }
 
   peek() {
-    return this.head.value;
+    return this.list.head.value;
   }
 
   isEmpty() {
@@ -31,3 +31,16 @@ class LinkedListQueue {
 }
 
 //testing the implementation
+const queue = new LinkedListQueue();
+console.log(queue.isEmpty());
+
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+
+console.log(queue.getSize());
+queue.print();
+
+queue.dequeue();
+console.log(queue.peek());
+queue.print();
