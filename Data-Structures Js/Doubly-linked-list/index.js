@@ -8,7 +8,7 @@ class Node {
 }
 
 //linkedlist class
-class LinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -109,3 +109,24 @@ class LinkedList {
     }
   }
 }
+
+//testing the implementation
+const list = new DoublyLinkedList();
+
+console.log(list.isEmpty());
+console.log(list.getSize());
+
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(3);
+
+list.print();
+
+list.printReverse();
+
+list.removeFromEnd();
+list.print();
+
+list.removeFromFront();
+list.print();
