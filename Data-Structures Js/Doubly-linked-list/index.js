@@ -61,4 +61,51 @@ class LinkedList {
     this.size--;
     return val;
   }
+
+  //removeFromEnd
+  removeFromEnd() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const val = this.tail.value;
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    }
+    this.size--;
+    return val;
+  }
+
+  //printing fron the front
+  print() {
+    if (this.isEmpty()) {
+      console.log("list is empty");
+    } else {
+      let curr = this.head;
+      let value = "";
+      while (curr) {
+        value += `${curr.value} `;
+        curr = curr.next;
+      }
+      console.log(value);
+    }
+  }
+
+  //printing in reverse
+  printReverse() {
+    if (this.isEmpty()) {
+      console.log("List is empty!");
+    } else {
+      let curr = this.tail;
+      let value = "";
+      while (curr) {
+        value += `${curr.value} `;
+        curr = curr.prev;
+      }
+      console.log(value);
+    }
+  }
 }
