@@ -22,3 +22,18 @@
 
 // The number of the nodes in the given list is in the range [1, 105].
 // 1 <= Node.val <= 105
+
+//Solution:
+
+var removeNodes = function (head) {
+  //recursion approach
+  if (!head) return null;
+
+  head.next = removeNodes(head.next);
+
+  if (head.next && head.val < head.next.val) {
+    return head.next;
+  }
+
+  return head;
+};
