@@ -38,19 +38,56 @@ var removeNodes = function (head) {
   // return head;
 
   //stack approach
-  const stack = [];
+  // const stack = [];
 
-  while (head) {
-    while (stack.length && head.val > stack[stack.length - 1]) {
-      stack.pop();
+  // while (head) {
+  //   while (stack.length && head.val > stack[stack.length - 1]) {
+  //     stack.pop();
+  //   }
+  //   stack.push(head.val);
+  //   head = head.next;
+  // }
+
+  // //putting elements left in astack to a new answer list
+  // while (stack.length) {
+  //   head = new ListNode(stack.pop(), head);
+  // }
+  // return head;
+
+  //reverse approach
+  let curr = reverse(head);
+  let max = -Infinity;
+
+  let ans = null;
+  let ansCurr = null;
+
+  while (curr) {
+    if (curr.val >= max) {
+      max = curr.val;
+      if (!ans) {
+        ans = curr;
+        ansCurr = curr;
+      } else {
+        ansCurr.next = curr;
+        ansCurr = ansCurr.next;
+      }
     }
-    stack.push(head.val);
-    head = head.next;
+    curr = curr.next;
   }
-
-  //putting elements left in astack to a new answer list
-  while (stack.length) {
-    head = new ListNode(stack.pop(), head);
-  }
-  return head;
+  ansCurr.next = null;
+  return reverse(ans);
 };
+
+//reverse function
+function reverse(head) {
+  let curr = head;
+  let prev = null;
+
+  while (curr) {
+    let next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+  return prev;
+}
