@@ -27,13 +27,30 @@
 
 var removeNodes = function (head) {
   //recursion approach
-  if (!head) return null;
+  // if (!head) return null;
 
-  head.next = removeNodes(head.next);
+  // head.next = removeNodes(head.next);
 
-  if (head.next && head.val < head.next.val) {
-    return head.next;
+  // if (head.next && head.val < head.next.val) {
+  //   return head.next;
+  // }
+
+  // return head;
+
+  //stack approach
+  const stack = [];
+
+  while (head) {
+    while (stack.length && head.val > stack[stack.length - 1]) {
+      stack.pop();
+    }
+    stack.push(head.val);
+    head = head.next;
   }
 
+  //putting elements left in astack to a new answer list
+  while (stack.length) {
+    head = new ListNode(stack.pop(), head);
+  }
   return head;
 };
