@@ -25,43 +25,98 @@
 // -109 <= target <= 109
 
 //Solution:
-//Using upper bound and lower bound:
-function upperBound(nums, target) {
+// function upperBound(nums,target)
+// {
+//     let low = 0;
+//     let high = nums.length - 1;
+//     let ans = nums.length;
+//     while(low<=high)
+//     {
+//         let mid = Math.floor((low+high)/2);
+//         if(nums[mid]>target)
+//         {
+//             ans = mid
+//             high = mid - 1;
+//         }
+//         else
+//         {
+//             low = mid + 1;
+//         }
+//     }
+//     return ans;
+// }
+
+// function lowerBound(nums,target)
+// {
+//     let low = 0;
+//     let high = nums.length - 1;
+//     let ans = nums.length;
+//     while(low<=high)
+//     {
+//         let mid = Math.floor((low+high)/2);
+//         if(nums[mid]>=target)
+//         {
+//             ans = mid
+//             high = mid - 1;
+//         }
+//         else
+//         {
+//             low = mid + 1;
+//         }
+//     }
+//     return ans;
+// }
+
+function firstOccurrence(nums, target) {
   let low = 0;
   let high = nums.length - 1;
-  let ans = nums.length;
+  let first = -1;
+
   while (low <= high) {
-    let mid = Math.floor((low + high) / 2);
-    if (nums[mid] > target) {
-      ans = mid;
+    let mid = low + Math.floor((high - low) / 2);
+    if (nums[mid] === target) {
+      first = mid;
       high = mid - 1;
-    } else {
+    } else if (nums[mid] < target) {
       low = mid + 1;
+    } else {
+      high = mid - 1;
     }
   }
-  return ans;
+  return first;
 }
 
-function lowerBound(nums, target) {
+function lastOccurrence(nums, target) {
   let low = 0;
   let high = nums.length - 1;
-  let ans = nums.length;
+  let last = -1;
+
   while (low <= high) {
-    let mid = Math.floor((low + high) / 2);
-    if (nums[mid] >= target) {
-      ans = mid;
+    let mid = low + Math.floor((high - low) / 2);
+    if (nums[mid] === target) {
+      last = mid;
+      low = mid + 1;
+    } else if (nums[mid] > target) {
       high = mid - 1;
     } else {
       low = mid + 1;
     }
   }
-  return ans;
+  return last;
 }
 
 var searchRange = function (nums, target) {
-  let lb = lowerBound(nums, target);
-  if (lb === nums.length || nums[lb] !== target) {
-    return [-1, -1];
-  }
-  return [lb, upperBound(nums, target) - 1];
+  //using upper and lower bound technique
+  // let lb = lowerBound(nums,target);
+  // if(lb === nums.length || nums[lb]!==target)
+  // {
+  //     return [-1,-1];
+  // }
+  // return [lb,upperBound(nums,target)-1];
+
+  //using first and last occurrence technique
+  let first = firstOccurrence(nums, target);
+  if (first === -1) return [-1, -1];
+  let last = lastOccurrence(nums, target);
+  return [first, last];
 };
